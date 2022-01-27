@@ -1,0 +1,22 @@
+<%- include('partials/header'); -%>
+
+<header>
+  <!-- <div class="smoothie">
+    <img src="/smoothie.png" alt="">
+  </div> -->
+  
+  <div class="headings">
+    <ul>
+      <% if (user) { %>
+        <li>Welcome, <%= user.email %></li>
+      <% } %>
+    </ul>
+    <br>
+    <h2>Technical Solutions and <br> Software Development Services </h2>
+    <h3>Your business is complicated enough... The software you use to run it should not be.</h3>
+    <a href="/smoothies" class="btn">View Products</a>
+  </div>
+</header>
+
+
+<%- include('partials/footer'); -%>
