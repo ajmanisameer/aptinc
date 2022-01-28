@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
-
+const http = require("http");
 const app = express();
 
 // middleware
@@ -17,11 +17,15 @@ app.set('view engine', 'ejs');
 // database connection
 const dbURI = 'mongodb+srv://aj:ajmani@cluster0-c60su.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
-  .then((result) => app.listen(3000))
-  .catch((err) => console.log(err));
+  // .then((result) => app.listen(3000))
+  // .catch((err) => console.log(err));
 
 // routes
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
-app.get('/smoothies', requireAuth, (req, res) => res.render('smoothies'));
+app.get('/products', requireAuth, (req, res) => res.render('smoothies'));
 app.use(authRoutes);
+
+
+http.createServer(app).listen(process.env.PORT || 3000);
+console.log("BackEnd Server Is On=", process.env.PORT || 3000);
