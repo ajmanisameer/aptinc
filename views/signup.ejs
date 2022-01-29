@@ -1,6 +1,6 @@
 <%- include('partials/header'); -%>
 
-<form action="/signup">
+<!-- <form action="/signup">
   <h2>Sign up</h2>
   <label for="email">Email</label>
   <input type="text" name="email" required />
@@ -9,10 +9,53 @@
   <input type="password" name="password" required />
   <div class="password error"></div>
   <button>Sign up</button>
-</form>
+</form> -->
+<div class="h-screen py-24 bg-gradient-to-r from-sky-500 to-indigo-500">
+  <form class="bg-white rounded-md" action="/signup">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Sign Up
+    </h2>
+    <div class="mb-4">
+      <label class="block mb-2 text-sm font-bold" for="email"> Email </label>
+      <input
+        type="text"
+        name="email"
+        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address"
+      />
+      <div class="email error"></div>
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2 text-sm font-bold" for="password">
+        Password
+      </label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+      />
+      <div class="password error"></div>
+    </div>
+    <button
+      class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    >
+      Sign up
+    </button>
+  </form>
+</div>
+
 
 <%- include('partials/footer'); -%>
-
+<style>
+  form {
+    width: 360px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: white;
+  }
+</style>
 <script>
   const form = document.querySelector('form');
   const emailError = document.querySelector('.email.error');
