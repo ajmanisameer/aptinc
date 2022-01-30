@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb+srv://aj:ajmani@cluster0-c60su.mongodb.net/test?retryWrites=true&w=majority';
+const dbURI = '<This should be the connection string copied from Atlas MongoDB>';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
   // .then((result) => app.listen(3000))
   // .catch((err) => console.log(err));
@@ -23,7 +23,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
 // routes
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
-app.get('/products', requireAuth, (req, res) => res.render('smoothies'));
+app.get('/products', requireAuth, (req, res) => res.render('products'));
 app.get('/contact', (req, res) => res.render('contact'));
 
 app.use(authRoutes);
