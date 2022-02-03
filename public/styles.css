@@ -209,4 +209,12 @@ footer {
   .nav-menu.active {
     left: 0;
   }
+
+ 
 }
+
+
+.active {
+  color: rgb(79 70 229) !important
+}
+

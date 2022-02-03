@@ -12,14 +12,14 @@
     <a href="/"><img class="brandimage"  src="/brand-image.png" alt="smoothie recipe icon"></a>
     <ul class="nav-menu">
       <% if (user) { %>
-        <li><a href="/products">Products</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/logout">Log out</a></li>
+        <li><a class="text-gray-500 hover:text-gray-900" href="/products">Products</a></li>
+        <li><a class="text-gray-500 hover:text-gray-900" href="/">About</a></li>
+        <li><a class="text-gray-500 hover:text-gray-900" href="/logout">Log out</a></li>
       <% } else { %>
-        <li><a href="/login">Log in</a></li>
-        <li><a href="/signup" class="btn">Sign up</a></li>
+        <li><a class="text-gray-500 hover:text-gray-900" href="/login">Log in</a></li>
+        <li><a class="text-gray-500 hover:text-gray-900" href="/signup" class="btn">Sign up</a></li>
       <% } %>
-      <li><a href="/contact">Contact</a></li>
+      <li><a class="text-gray-500 hover:text-gray-900" href="/contact">Contact</a></li>
 
     </ul>
     <div class="hamburger md:hidden">
@@ -33,16 +33,20 @@
   <script>
     const hamburger = document.querySelector(".hamburger")
     const navMenu = document.querySelector(".nav-menu")
+    const listItems = document.querySelectorAll('.nav-menu li a');
+    const pname = window.location.pathname
 
     hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("active")
       navMenu.classList.toggle("active")
     })
 
-    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-      hamburger.classList.remove("active")
-      navMenu.classList.remove("active")
-    }))
+    
+    for (let i = 0; i <= listItems.length - 1; i++) {
+        if(pname == listItems[i].pathname){
+          listItems[i].classList.add("active")
+        }
+    }
 
   </script>
   

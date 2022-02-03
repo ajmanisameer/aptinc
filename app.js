@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = '<This should be the connection string copied from Atlas MongoDB>';
+const dbURI = 'mongodb+srv://aj:ajmani@cluster0-c60su.mongodb.net/eventsDB?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
   // .then((result) => app.listen(3000))
   // .catch((err) => console.log(err));
