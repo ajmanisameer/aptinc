@@ -2,8 +2,8 @@ const nodemailer = require("nodemailer");
 
 module.exports.send = function (params) {
   const credentials = {
-    email: "ajmanisameer@gmail.com",
-    password: "jlcelehcahczdipj"
+    email: " <email goes here> ",
+    password: " <app password goes here> "
   }
   let mailTransporter = nodemailer.createTransport({
     service: "gmail",

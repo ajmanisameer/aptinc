@@ -57,9 +57,13 @@ The source code is broken down into multiple modules.
 ## Email Configuration
 
    1 -  Follow the below link to `Create and use app password` in your gmail accound
-    https://support.google.com/accounts/answer/185833?hl=en
+    `https://support.google.com/accounts/answer/185833?hl=en`
 
    2 -  Navigate to `config/mail.js` and replace the following
      `email` -  "<here goes your email id>",
      `password`: "<here goes your app password which you retrieved from the first step>",
-   
+   3 - Run `npm install` on the root directory
+
+
+Note: Make ensure `MongoDB url` is included on app.js 
+
