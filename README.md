@@ -51,3 +51,15 @@ The source code is broken down into multiple modules.
 # views
     Containes all the views breaked down into different modules for easy update
     Views are build with embedded javascript template generating HTML markup. 
+
+
+
+## Email Configuration
+
+   1 -  Follow the below link to `Create and use app password` in your gmail accound
+    https://support.google.com/accounts/answer/185833?hl=en
+
+   2 -  Navigate to `config/mail.js` and replace the following
+     `email` -  "<here goes your email id>",
+     `password`: "<here goes your app password which you retrieved from the first step>",
+   

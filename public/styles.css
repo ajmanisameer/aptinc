@@ -102,6 +102,13 @@ button {
   font-size: 0.8em;
   font-weight: bold;
 }
+
+.success {
+  color: green;
+  margin: 10px 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
 /* header {
   display: flex;
   align-items: center;
