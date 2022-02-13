@@ -1,4 +1,23 @@
-<footer>Copyright 2021 All Purpose Tech Inc.</footer>
+<hr class="my-6 border-blueGray-300" />
+<footer> Copyright © <span id="get-current-year"></span> All Purpose Tech Inc.</footer>
+<!-- <div class="flex flex-wrap items-center md:justify-between justify-center">
+  <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+    <div class="text-sm text-blueGray-500 font-semibold py-1">
+      Copyright © <span id="get-current-year"></span> All Purpose Tech Inc.
+    </div>
+  </div>
+</div> -->
 
+
+<script>
+      /* Make dynamic date appear */
+  (function () {
+    if (document.getElementById("get-current-year")) {
+      document.getElementById(
+        "get-current-year"
+      ).innerHTML = new Date().getFullYear();
+    }
+  })();
+</script>
 </body>
 </html>

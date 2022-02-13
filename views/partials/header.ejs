@@ -1,14 +1,19 @@
-
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Purpose Tech Inc.</title>
   <link rel="stylesheet" href="/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" />
+  <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
+
+
 </head>
+
 <body>
-  <nav class="navbar">
+  <!-- <nav class="navbar">
     <a href="/"><img class="brandimage"  src="/brand-image.png" alt="smoothie recipe icon"></a>
     <ul class="nav-menu">
       <% if (user) { %>
@@ -28,25 +33,93 @@
       <span class="bar"></span>
 
     </div>
+  </nav> -->
+
+  <nav
+    class="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-2 navbar-expand-lg bg-white shadow">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+        <a href="/"><img class="object-fill h-10 w-18"  src="/brand-image.png" alt="smoothie recipe icon"></a><button
+          class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          type="button" onclick="toggleNavbar('example-collapse-navbar')">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none hidden"
+        id="example-collapse-navbar">
+        <ul class=" flex flex-col lg:flex-row list-none lg:ml-auto items-center">
+          <!-- <li class="inline-block relative">
+            <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="#pablo" >
+              Demo Pages
+            </a>
+       
+          </li>
+          <li class="flex items-center">
+            <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-js%2F"
+              target="_blank"><i class="text-blueGray-400 fab fa-facebook text-lg leading-lg"></i><span
+                class="lg:hidden inline-block ml-2">Share</span></a>
+          </li>
+          <li class="flex items-center">
+            <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-js%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20JavaScript%20UI%20Kit%20and%20Admin.%20Let%20Notus%20JS%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level."
+              target="_blank"><i class="text-blueGray-400 fab fa-twitter text-lg leading-lg"></i><span
+                class="lg:hidden inline-block ml-2">Tweet</span></a>
+          </li> -->
+          <% if (user) { %>
+            <li><a class="text-gray-500 hover:text-gray-900" href="/products">Dashboard</a></li>
+            <li><a class="text-gray-500 hover:text-gray-900" href="/">Home</a></li>
+            <li><a class="text-gray-500 hover:text-gray-900" href="/logout">Log out</a></li>
+          <% } else { %>
+            <li><a class="text-gray-500 hover:text-gray-900" href="/login">Log in</a></li>
+            <li><a class="text-gray-500 hover:text-gray-900" href="/signup" class="btn">Sign up</a></li>
+          <% } %>
+          <li><a class="text-gray-500 hover:text-gray-900" href="/contact">Contact</a></li>
+    
+        </ul>
+      </div>
+    </div>
   </nav>
+
+
 
   <script>
     const hamburger = document.querySelector(".hamburger")
     const navMenu = document.querySelector(".nav-menu")
-    const listItems = document.querySelectorAll('.nav-menu li a');
+    const listItems = document.querySelectorAll('li a');
     const pname = window.location.pathname
 
-    hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active")
-      navMenu.classList.toggle("active")
-    })
+    // hamburger.addEventListener("click", () => {
+    //   hamburger.classList.toggle("active")
+    //   navMenu.classList.toggle("active")
+    // })
 
-    
+
     for (let i = 0; i <= listItems.length - 1; i++) {
-        if(pname == listItems[i].pathname){
-          listItems[i].classList.add("active")
-        }
+      if (pname == listItems[i].pathname) {
+        listItems[i].classList.add("active")
+      }
+    }
+
+
+    /* Function for opning navbar on mobile */
+    function toggleNavbar(collapseID) {
+      document.getElementById(collapseID).classList.toggle("hidden");
+      document.getElementById(collapseID).classList.toggle("block");
+    }
+    /* Function for dropdowns */
+    function openDropdown(event, dropdownID) {
+      let element = event.target;
+      while (element.nodeName !== "A") {
+        element = element.parentNode;
+      }
+      Popper.createPopper(element, document.getElementById(dropdownID), {
+        placement: "bottom-start",
+      });
+      document.getElementById(dropdownID).classList.toggle("hidden");
+      document.getElementById(dropdownID).classList.toggle("block");
     }
 
   </script>
-  

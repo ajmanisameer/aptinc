@@ -7,7 +7,7 @@ const http = require("http");
 const app = express();
 
 // middleware
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = '<This should be the connection string copied from Atlas MongoDB>';
+const dbURI = 'mongodb+srv://aj:ajmani@cluster0-c60su.mongodb.net/eventsDB?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
   // .then((result) => app.listen(3000))
   // .catch((err) => console.log(err));
@@ -25,6 +25,10 @@ app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
 app.get('/products', requireAuth, (req, res) => res.render('products'));
 app.get('/contact', (req, res) => res.render('contact'));
+app.get('/sidebar', (req, res) => res.render('sidebar'));
+
+
+
 
 app.use(authRoutes);
 
